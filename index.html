@@ -1,0 +1,64 @@
+<!-- Vueで指定された"app"要素、この中でのみVueが有効 -->
+<div id="app">
+  <v-app>
+    <v-content>
+      <v-container>
+        <v-row
+          class="text-h3 mb-3 mt-3"
+          justify="center"
+          >
+          My ToDo App
+        </v-row>
+        <v-row
+          class="mb-3 mt-3"
+          align="center"
+          justify="center"
+          >
+          <v-col 
+            cols="6"            
+            >
+            <v-text-field
+                  class="ml-6 mr-6"
+                  v-model:value="task"                         
+                  label="タスクを入力"
+                  placeholder="タスクを入力…"
+                  outlined
+            >
+          </v-col>
+        </v-row>
+        <v-row
+          class="mb-3 mt-3"
+          align="center"
+          justify="center"
+          >
+          タスク内容：{{ task }}
+          <v-btn v-on:click="addTask"
+               fab
+               dark
+               small               
+               color="red"
+               >
+                 <v-icon dark>
+                   mdi-plus
+                 </v-icon>
+               </v-btn>
+        </v-row>
+        <v-row
+          class="mb-3 mt-3"
+          justify="center"
+          > 
+          <v-btn v-on:click="clearAll"
+                 
+                 rounded
+                 >全てのToDoをクリア</v-btn>
+        </v-row>
+        <v-row 
+          class="mb-3 mt-3"
+          justify="center"
+          v-for="todo in todoList">
+          {{ todo }}
+        </v-row>
+      </v-container>
+    </v-content>
+  </v-app>
+</div>
